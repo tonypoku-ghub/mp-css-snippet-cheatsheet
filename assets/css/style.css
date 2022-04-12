@@ -1,6 +1,9 @@
 :root {
   --bulls_light_red: #d1214f;
   --bulls_dark_red: #4a0a1b;
+  --main_text_color: #ffffff;
+  --alt_text_color: #f6d1d1;
+  --bulls_bg_color: #d1214f;
 }
 
 * {
@@ -17,15 +20,6 @@ body {
   background-size: 100%; */
 }
 
-article {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  position: relative;
-  padding: 0px 12px;
-}
-
 .main-header {
   display: flex;
   /* Forces elements to the next line if they don't fit */
@@ -33,8 +27,8 @@ article {
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  color: #fff;
-  width: 80%;
+  color: var(--main_text_color);
+  width: auto;
   font-size: 70%;
   margin: 40px;
   /*border: 2px solid white;*/
@@ -42,7 +36,6 @@ article {
 }
 
 .main-header h1 {
-  color: white;
   font-size: 200%;
   /*border: 2px solid white;*/
   white-space: nowrap;
@@ -52,37 +45,56 @@ article {
 
 .main-header h2 {
   color: #f6d1d1;
-  font-size: 150%;
-  white-space: nowrap;
+  font-size: 120%;
+  white-space: normal;
+  text-align: center;
+  width: 100%;
+  margin: 0 0 20px 0;
+}
+
+
+article {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-count: 1;
+  justify-content: space-evenly;
+  position: relative;
+  padding: 0px 12px;
 }
 
 .card{
-  flex: 1 1 100px;
-  border: 2px dashed pink;
-  color: white;
-  width: 80%;
+  flex: 0 0 300px;
+  border: 2px dashed var(--alt_text_color);
+  color: var(--main_text_color);
+  width: 100vw;
   background-image: url("../images/bulls.jpg");
-  background-color: white;
+  background-color: var(--bulls_bg_color);
   background-repeat: no-repeat;
-  background-size: 100%;
-  transition: all 0.5s ease-in-out;
-  margin: 0 10px 30px;
+  background-size: cover;
+  margin: 0 10px 40px;
 }
 
 .card h1 {
-  border: 2px dashed #b2153d;
-  border-radius: 5%;
+  border: 2px solid var(--alt_text_color);
+  border-radius: 6%;
   text-align: center;
   padding: 8px;
   position: relative;
   top: -20px;
   background: linear-gradient(0.50turn, var(--bulls_light_red), var(--bulls_dark_red));
   margin: 0px 10px;
-  transition: all 0.5s ease-in-out;
 }
+
+/* Enlarge the text on hover */
+.card h1:hover {
+  font-size: larger;
+}
+
 
 .card p {
   text-align: left;
+  height: 80px;
   padding: 8px;
   background: linear-gradient(0.50turn, var(--bulls_light_red), var(--bulls_dark_red));
   opacity: 80%;
@@ -91,10 +103,42 @@ article {
 
 .card pre {
   text-align: left;
+  height: 250px;
   padding: 8px;
   cursor: text;
   user-select: all;
   background: linear-gradient(0.50turn, var(--bulls_light_red), var(--bulls_dark_red));
-  opacity: 60%;
+  opacity: 90%;
   margin: 0px 10px;
+  border: 2px solid var(--bulls_light_red);
 }
+
+/* Enlarge the text on hover */
+.card pre:hover {
+  font-size: larger;
+}
+
+footer{
+  display: flex;
+  justify-content: center;
+  color: var(--alt_text_color);
+
+}
+/* maintain 2 columns for tablets*/
+@media only screen and (min-width: 992px){
+  .article {
+    column-count: 3;
+  }
+
+  .main-header h2 {
+    width: 70%;
+  }
+}
+
+/* maintain 3 columns for PC */
+@media only screen and (min-width: 768px){
+  .article {
+    column-count: 2;
+    align-items: center;
+  }
+} 
