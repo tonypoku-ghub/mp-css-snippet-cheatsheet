@@ -52,7 +52,6 @@ body {
   margin: 0 0 20px 0;
 }
 
-
 article {
   display: flex;
   flex-direction: row;
@@ -124,19 +123,24 @@ footer{
   color: var(--alt_text_color);
 
 }
-/* maintain 2 columns for tablets*/
+/* maintain 2 columns for desktops */
 @media only screen and (min-width: 992px){
-  .article {
+  /* .article {
     column-count: 3;
-  }
+  } */
 
+  .card {
+    flex: 0 0 30%;
+  }
+  
   .main-header h2 {
     width: 70%;
   }
 }
 
-/* maintain 3 columns for PC */
+/* maintain 3 columns for tablets */
 @media only screen and (min-width: 768px){
+
   .article {
     column-count: 2;
     align-items: center;
